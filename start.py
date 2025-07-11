@@ -1,3 +1,5 @@
+pip install -r requirements.txt
+
 import transformers
 import streamlit as st
 #from asr_module import show_asr_tab
