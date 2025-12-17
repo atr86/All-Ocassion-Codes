@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Mouse Events Demo</title>
+<script type="text/javascript">
+function clicked() {
+    alert("Mouse Clicked!");
+}
+
+function doubleClicked() {
+    alert("Mouse Double Clicked!");
+}
+
+function mouseOver() {
+    document.getElementById("box").style.backgroundColor = "lightgreen";
+}
+
+function mouseOut() {
+    document.getElementById("box").style.backgroundColor = "lightblue";
+}
+
+function mouseMove() {
+    document.getElementById("status").innerHTML = "Mouse is moving...";
+}
+
+function mouseDown() {
+    document.getElementById("box").style.border = "5px solid red";
+}
+
+function mouseUp() {
+    document.getElementById("box").style.border = "5px solid black";
+}
+</script>
+</head>
+
+<body bgcolor="pink">
+
+<h2 align="center">Mouse Event Functionalities Demo</h2>
+
+<div id="box"
+     style="width:300px;height:150px;background-color:lightblue;
+            border:5px solid black;margin:auto;text-align:center;padding-top:50px;"
+     onClick="clicked()"
+     onDblClick="doubleClicked()"
+     onMouseOver="mouseOver()"
+     onMouseOut="mouseOut()"
+     onMouseMove="mouseMove()"
+     onMouseDown="mouseDown()"
+     onMouseUp="mouseUp()">
+
+     Hover, Click, or Move Mouse Here
+</div>
+
+<h3 id="status" align="center"></h3>
+
+</body>
+</html>
+<!--
+Event	Trigger	What the code does
+onClick	Single click	Shows alert
+onDblClick	Double click	Shows alert
+onMouseOver	Mouse enters element	Changes background
+onMouseOut	Mouse leaves element	Restores background
+onMouseMove	Mouse moves inside element	Updates status text
+onMouseDown	Mouse button pressed	Changes border color
+onMouseUp	Mouse button released	Restores border
+Edit in a page-->

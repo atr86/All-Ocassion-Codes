@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Keyboard, Form & Window Events</title>
+
+<script type="text/javascript">
+
+/* ---------------- WINDOW EVENTS ---------------- */
+
+/* 
+   onLoad → Calls this function when the window finishes loading.
+   Useful for initialization messages or setup tasks.
+*/
+function pageLoaded() {
+    alert("Window Loaded Successfully!");
+}
+
+/*
+   onResize → Triggered whenever the browser window is resized.
+   document.getElementById("winStatus") → 
+       - Searches the HTML document
+       - Finds the element with id="winStatus"
+       - Allows us to change its content or style
+*/
+function pageResized() {
+    document.getElementById("winStatus").innerHTML = 
+        "Window resized at: " + new Date().toLocaleTimeString();
+}
+
+
+/* ---------------- KEYBOARD EVENTS ---------------- */
+
+/*
+   onKeyDown → Fires when a key is pressed.
+   event.key → Gives the actual key pressed (e.g., "a", "Enter", "5")
+*/
+function keyPressed() {
+    document.getElementById("keyStatus").innerHTML = 
+        "Key Pressed: " + event.key;
+}
+
+/*
+   onKeyUp → Fires when the key is released.
+*/
+function keyUpEvent() {
+    document.getElementById("keyStatus").innerHTML = 
+        "Key Released!";
+}
+
+
+/* ---------------- FORM EVENTS ---------------- */
+
+/*
+   onSubmit → Triggered when the form is submitted.
+   document.forms["myForm"]["uname"].value →
+       - Access the form named "myForm"
+       - Access the input field named "uname"
+       - Get its value
+*/
+function validateForm() {
+    let name = document.forms["myForm"]["uname"].value;
+
+    if (name == "") {
+        alert("Name cannot be empty!");
+        return false;   // Prevents form submission
+    }
+
+    alert("Form Submitted Successfully!");
+    return true;
+}
+
+/*
+   onReset → Triggered when the form reset button is clicked.
+*/
+function resetFormMsg() {
+    alert("Form Reset!");
+}
+
+</script>
+</head>
+
+<body bgcolor="pink" 
+      onLoad="pageLoaded()" 
+      onResize="pageResized()">
+
+<h2 align="center">Keyboard, Form & Window Events Demo</h2>
+
+<!-- This element displays window resize status -->
+<h3 id="winStatus" align="center"></h3>
+
+<!-- KEYBOARD EVENTS SECTION -->
+<div style="text-align:center;">
+    <h3>Type Something:</h3>
+
+    <!-- onKeyDown & onKeyUp trigger the functions above -->
+    <input type="text" 
+           onKeyDown="keyPressed()" 
+           onKeyUp="keyUpEvent()">
+
+    <!-- This element displays keyboard event messages -->
+    <h3 id="keyStatus"></h3>
+</div>
+
+<!-- FORM EVENTS SECTION -->
+<center>
+<form name="myForm" onSubmit="return validateForm()" onReset="resetFormMsg()">
+    <table cellpadding="5">
+        <tr>
+            <th>Enter Name:</th>
+            <td><input type="text" name="uname"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+            <td><input type="reset" value="Reset"></td>
+        </tr>
+    </table>
+</form>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Object Properties Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .section { margin-bottom: 20px; border: 1px solid #da1f1f; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Document Object Demo</h2>
+    
+    <a name="topAnchor"></a>
+    <a name="sectionAnchor"></a>
+
+    <div class="section">
+        <strong>Links:</strong>
+        <a href="https://www.google.com">Google</a> | 
+        <a href="https://www.wikipedia.org">Wikipedia</a>
+    </div>
+
+    <div class="section">
+        <strong>Form:</strong>
+        <form name="userForm">
+            <input type="text" placeholder="Your Name">
+            <button type="button">Submit</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h3>Control Panel</h3>
+        <button onclick="changeColors()">1. Change Bg/Fg Color</button>
+        <button onclick="showCollections()">2. Count Arrays</button>
+        <button onclick="demoWriteAndClose()">3. Write & Close</button>
+    </div>
+
+    <script>
+        // DEMO 1: bgcolor and fgcolor
+        function changeColors() {
+            // Sets background to pastel yellow and text to dark blue
+            document.bgColor = "#fcf8e3";
+            document.fgColor = "#00008b"; 
+            alert("Changed document.bgColor and document.fgColor!");
+        }
+
+        // DEMO 2: anchors, links, and forms arrays
+        function showCollections() {
+            // Accessing the arrays provided by the document object
+            let anchorCount = document.anchors.length;
+            let linkCount = document.links.length;
+            let formCount = document.forms.length;
+
+            // Accessing specific data inside the forms array
+            let formName = document.forms[0].name;
+
+            alert(
+                "Array Statistics:\n" +
+                "• Anchors found: " + anchorCount + "\n" +
+                "• Links found: " + linkCount + "\n" +
+                "• Forms found: " + formCount + " (First form name: " + formName + ")"
+            );//+ document.anchors
+        }
+
+        // DEMO 3: write(), writeln(), and close()
+        function demoWriteAndClose() {
+            // We open a new window to demonstrate write() so we don't overwrite the current page
+            let newWindow = window.open("", "newWin", "width=400,height=300");
+            
+            // Using write() to build HTML content
+            newWindow.document.write("<h1>Generated Document</h1>");
+            newWindow.document.write("<p>This HTML was created using <b>document.write()</b>.</p>");
+            
+            // Using close() to tell the browser we are done writing
+            // If we don't call this, the browser 'spinner' might keep loading
+            newWindow.document.close(); 
+        }
+    </script>
+</body>
+</html>

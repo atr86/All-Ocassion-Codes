@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<school>
+	<class>
+		<title>XML</title>
+		<students>
+			<student>
+				<first_name>aaa</first_name>
+				<last_name>bbb</last_name>
+			</student>
+			<student>
+				<first_name>ccc</first_name>
+				<last_name>ddd</last_name>
+			</student>
+		</students>
+	</class>
+</school>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OuterText</title>
+    <script>
+    function changeHeader(){
+        // get the header element
+        var header = document.getElementById('header');
+        // outerText replaces the element itself with plain text (no HTML)
+        // the header element will be removed and replaced by a text node
+        header.outerText = "This is new Header";
+    }
+    </script>
+</head>
+<body style="background:pink">
+    <center>
+        <h1 id="header" onclick="changeHeader()">Dynamic HTML (click me)</h1>
+    </center>
+
+    <p>Click the heading to see `outerText` replace the element with plain text.</p>
+</body>
+</html>

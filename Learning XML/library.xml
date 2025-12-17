@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="show-attributes.xsl"?>
+<!DOCTYPE library SYSTEM "book.dtd">
+
+<library>
+    <book id="B101" language="English" format="hardcover">
+        <title>XML Fundamentals</title>
+        <author>John Smith</author>
+        <year>2020</year>
+    </book>
+
+    <book id="B102" language="French" format="hardcover">
+        <title>Programmation Web</title>
+        <author>Marie Dupont</author>
+        <year>2018</year>
+    </book>
+</library>
+

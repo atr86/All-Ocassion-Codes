@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="9_people.xsl"?>
+<people>
+  <person born="1993">
+    <name>
+      <firstname>aaa</firstname>
+      <lastname>bbb</lastname>
+    </name>
+    <profession>Software Engineer</profession>
+  </person>
+  <person born="1982">
+    <name>
+      <firstname>ccc</firstname>
+      <lastname>ddd</lastname>
+    </name>
+    <profession>Project Manager</profession>
+  </person>
+</people>

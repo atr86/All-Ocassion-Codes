@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Content Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #targetBox {
+            border: 2px solid #333;
+            background-color: #e0f7fa;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        button { margin: 5px; padding: 8px; cursor: pointer; }
+        .note { color: #666; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+    <h2>Dynamic Content Manipulator</h2>
+    <p class="note">Watch how the Blue Box below changes based on the method used.</p>
+
+    <div id="targetBox">
+        <strong>Original Content</strong>
+    </div>
+
+    <div>
+        <h3>1. Inner vs Outer</h3>
+        <button onclick="demoInnerHTML()">innerHTML (Change Content)</button>
+        <button onclick="demoOuterHTML()">outerHTML (Replace Box)</button>
+        
+        <h3>2. Text vs HTML</h3>
+        <button onclick="demoInnerText()">innerText (Safe Text)</button>
+        <button onclick="demoOuterText()">outerText (Delete Box, Keep Text)</button>
+
+        <h3>3. Adjacent Insertion</h3>
+        <button onclick="demoInsertAdj()">insertAdjacentHTML (Add After)</button>
+    </div>
+
+    <button onclick="location.reload()" style="background:#ffcccc; margin-top:20px;">Reset Demo</button>
+
+    <script>
+        function getEl() {
+            var el = document.getElementById("targetBox");
+            if (!el) { alert("Target box is gone! Reset the demo."); return null; }
+            return el;
+        }
+
+        // 1. innerHTML: Keeps the box, changes inside to RED text
+        function demoInnerHTML() {
+            var el = getEl();
+            if(el) el.innerHTML = "<h3 style='color:red'>I am new HTML content!</h3>";
+        }
+
+        // 2. outerHTML: Removes the box, replaces it with a BUTTON
+        function demoOuterHTML() {
+            var el = getEl();
+            if(el) el.outerHTML = "<button>I replaced the old div!</button>";
+        }
+
+        // 3. innerText: Shows tags literally (does not parse them)
+        function demoInnerText() {
+            var el = getEl();
+            // Note: The <b> tag will actually appear on screen as text, not bold
+            if(el) el.innerText = "I display <b>tags</b> as text.";
+        }
+
+        // 4. outerText: The blue box disappears, only text remains
+        function demoOuterText() {
+            var el = getEl();
+            if(el) el.outerText = "The Div is dead. Long live the Text.";
+        }
+
+        // 5. insertAdjacentHTML: Adds a new yellow box AFTER the blue box
+        // Positions: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
+        function demoInsertAdj() {
+            var el = getEl();
+            if(el) el.insertAdjacentHTML("afterend", "<div style='background:yellow; border:1px solid black'>I am an adjacent neighbor</div>");
+        }
+    </script>
+
+</body>
+</html>

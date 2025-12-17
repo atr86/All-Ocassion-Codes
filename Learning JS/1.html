@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Connection</title>
+</head>
+<body>
+    <p>Internal JS</p>
+
+    <script type="text/javascript">
+        // Write some content to the page.
+        document.write("My 1st Webpage with JS<br>");
+
+        // IMPORTANT: do NOT document.write raw '<script...' tags into the document.
+        // Writing literal '<script' into the page injects an actual script element
+        // and can break the parser / page execution. Instead, escape the angle
+        // brackets if you want to show the tag as text.
+        document.write("Method 1: &lt;script language=\"javascript\"&gt;<br>");
+        document.write("Method 2: &lt;script type=\"text/javascript\"&gt;<br>");
+    </script>
+
+    <p>If you want to show the code without using JavaScript, use HTML-escaped tags:</p>
+    <pre>&lt;script type="text/javascript"&gt; ... &lt;/script&gt;</pre>
+
+</body>
+</html>
+

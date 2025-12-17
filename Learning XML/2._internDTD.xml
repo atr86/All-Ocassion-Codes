@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE document [
+	<!ELEMENT document (customer)*>
+	<!ELEMENT customer (name,date,orders)>
+	<!ELEMENT name (firstname,lastname)>
+	<!ELEMENT firstname (#PCDATA)>
+	<!ELEMENT lastname (#PCDATA)>
+	<!ELEMENT date (#PCDATA)>
+	<!ELEMENT orders (item)*>
+	<!ELEMENT item (product,number,price)>
+	<!ELEMENT product (#PCDATA)>
+	<!ELEMENT number (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+	<!ELEMENT customer (name,date,orders)>
+    <!ATTLIST customer
+    nationality CDATA #FIXED "INDIAN"
+                Age         CDATA #IMPLIED
+                Type        CDATA #REQUIRED>
+]>
+<document>
+	<customer >
+		<name>
+			<firstname>aaa</firstname>
+			<lastname>bbb</lastname>
+		</name>
+		<date>01 jan 2017</date>
+		<orders>
+			<item>
+				<product>Chocolates</product>
+				<number>777</number>
+				<price>250</price>
+			</item>
+			<item>
+				<product>Sweets</product>
+				<number>888</number>
+				<price>450</price>
+			</item>
+		</orders>
+	</customer>
+</document>

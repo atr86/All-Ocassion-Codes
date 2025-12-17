@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Events Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        form { background: #f0f0f0; padding: 20px; border-radius: 8px; width: 300px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="password"] { width: 90%; padding: 5px; }
+        .msg { color: red; font-size: 0.9em; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>Form Object Events Demo</h2>
+
+    <form name="loginForm" 
+          action="/submit-success" 
+          onsubmit="return validateLogin()" 
+          onreset="return confirmClear()">
+
+        <div class="input-group">
+            <label>Username:</label>
+            <input type="text" name="username" id="user">
+        </div>
+
+        <div class="input-group">
+            <label>Password:</label>
+            <input type="password" name="password" id="pass">
+            
+            <br>
+            <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+        </div>
+
+        <div id="errorMsg" class="msg"></div>
+
+        <br>
+        <input type="submit" value="Login">
+        <input type="reset" value="Clear Form">
+    </form>
+
+    <script>
+        // EVENT 1: onClick
+        // Toggles the password field between 'password' (hidden) and 'text' (visible)
+        function togglePasswordVisibility() {
+            var passField = document.getElementById("pass");
+            if (passField.type === "password") {
+                passField.type = "text";
+            } else {
+                passField.type = "password";
+            }
+        }
+
+        // EVENT 2: onSubmit
+        // Checks if fields are empty. Returns 'false' to stop the form if invalid.
+        function validateLogin() {
+            var user = document.forms["loginForm"]["username"].value;
+            var pass = document.forms["loginForm"]["password"].value;
+            var errorDiv = document.getElementById("errorMsg");
+
+            if (user == "" || pass == "") {
+                errorDiv.innerHTML = "❌ Please fill in both fields!";
+                alert("Event: onSubmit trigger -> Validation Failed");
+                return false; // STOPS the form from submitting
+            }
+
+            alert("Event: onSubmit trigger -> Validation Success! Submitting...");
+            return true; // ALLOWS the form to submit
+        }
+
+        // EVENT 3: onReset
+        // Confirms if the user really wants to wipe their data
+        function confirmClear() {
+            // confirm() returns true if user clicks OK, false if Cancel
+            var response = confirm("Event: onReset trigger -> Are you sure you want to clear all data?");
+            return response; 
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<!-- Root wrapper for multiple students -->
+	<xsd:element name="students">
+		<xsd:complexType name="students">
+			<xsd:sequence>
+				<xsd:element name="student" type="studentType" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="studentType">
+		<xsd:sequence>
+			<xsd:element name="rollnumber" type="xsd:string"/>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="marks" type="xsd:integer"/>
+			<xsd:element name="result" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

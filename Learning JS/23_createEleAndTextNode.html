@@ -1,0 +1,23 @@
+<html> 
+<head> 
+<title>createElement</title> 
+<script language="javascript"> 
+function showMore(){ 
+var newDiv,newTextfield,newText; 
+newDiv=document.createElement("DIV"); 
+newDiv.id="div1"; 
+newTextfield=document.createElement("INPUT"); 
+newTextfield.type="text"; 
+newTextfield.value="Hello!"; 
+newText=document.createTextNode("A New Textfield"); 
+newDiv.insertBefore(newText,null); 
+newDiv.insertBefore(newTextfield,null); 
+document.body.insertBefore(newDiv,null); 
+} 
+</script> 
+</head> 
+<body bgcolor="pink"> 
+<h1 align="center">CreateElement Method</h1><br> 
+<input type="button" value="Click Me" onClick="showMore()">  
+</body> 
+</html>

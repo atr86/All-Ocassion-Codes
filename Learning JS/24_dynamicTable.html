@@ -1,0 +1,39 @@
+<html> 
+<head> 
+<title>Dynamic Tables</title> 
+<script language="javascript"> 
+function addRow(){ 
+var newRow=table1.insertRow(3); 
+var newCell=newRow.insertCell(0); 
+newCell.innerText="aaa"; 
+var newCell=newRow.insertCell(1); 
+newCell.innerText="bbb"; 
+var newCell=newRow.insertCell(2); 
+newCell.innerText="ccc"; 
+} 
+</script> 
+</head> 
+<body bgcolor="pink"> 
+<center> 
+<h1>Dynamic Tables</h1> 
+<table id="table1" border="2"> 
+<tr> 
+<th>ABC</th> 
+<th>DEF</th> 
+<th>GHI</th> 
+</tr> 
+<tr> 
+<td>aaa</td> 
+<td>bbb</td> 
+<td>ccc</td> 
+</tr> 
+<tr> 
+<td>aaa</td> 
+<td>bbb</td> 
+<td>ccc</td> 
+</tr> 
+</table> 
+<input type="button" value="Add Row" onClick="addRow()"> 
+</center> 
+</body> 
+</html> 

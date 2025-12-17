@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html> 
+<head> 
+<title>Date</title> 
+</head> 
+<body onload="Dater()"> 
+
+<div id="output"></div>
+
+<script>
+function Dater(){
+    var today = new Date();
+    var yesterday = new Date();
+
+    // set yesterday to one day before today
+    yesterday.setDate(today.getDate() - 1);
+
+    // Insert output into the page safely (avoid document.write after load)
+    var out = document.getElementById("output");
+    out.innerHTML = "<h3>The date is: " + today.toString() + "</h3>"
+                  + "<h3>The date yesterday was: " + yesterday.toString() + "</h3>";
+}
+</script>
+
+</body>
+</html>

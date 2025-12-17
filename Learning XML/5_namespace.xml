@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<college>
+                 
+    <staff xmlns:staff="http://webtechnologies/smmtaffInfo">
+        <staff:name>aaa</staff:name>
+        <staff:dept>CSE</staff:dept>
+    </staff>
+    <student xmlns:student="http://example.com/studentInfo">
+        <student:name>bbb</student:name>
+        <student:dept>CSE</student:dept>
+    </student>
+</college>

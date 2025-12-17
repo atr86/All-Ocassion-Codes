@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table Demo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h2>Dynamic Table Generator</h2>
+    <p>Click the button to generate a table from a JavaScript array.</p>
+    
+    <button onclick="generateTable()">Generate Table</button>
+    
+    <div id="tableContainer"></div>
+
+    <script>
+        // 1. The Data Source (Array of Objects)
+        var students = [
+            { id: 101, name: "Alice Johnson", grade: "A" },
+            { id: 102, name: "Bob Smith", grade: "B+" },
+            { id: 103, name: "Charlie Brown", grade: "A-" }
+        ];
+
+        function generateTable() {
+            var container = document.getElementById("tableContainer");
+            
+            // Prevent duplicate tables if button is clicked twice
+            container.innerHTML = ""; 
+
+            // 2. Create the <table> element
+            var table = document.createElement("table");
+
+            // --- STEP A: Create the Header Row ---
+            var thead = document.createElement("tr");
+            
+            // Helper array for headers
+            var headers = ["ID", "Name", "Grade"];
+            
+            for(var i = 0; i < headers.length; i++) {
+                var th = document.createElement("th");       // Create <th>
+                var text = document.createTextNode(headers[i]); // Create text
+                th.appendChild(text);                        // Put text in <th>
+                thead.appendChild(th);                       // Put <th> in row
+            }
+            table.appendChild(thead); // Add header row to table
+
+            // --- STEP B: Create Data Rows ---
+            for (var i = 0; i < students.length; i++) {
+                var row = document.createElement("tr");      // Create <tr>
+
+                // Create Cell 1 (ID)
+                var cell1 = document.createElement("td");
+                var text1 = document.createTextNode(students[i].id);
+                cell1.appendChild(text1);
+                row.appendChild(cell1);
+
+                // Create Cell 2 (Name)
+                var cell2 = document.createElement("td");
+                var text2 = document.createTextNode(students[i].name);
+                cell2.appendChild(text2);
+                row.appendChild(cell2);
+
+                // Create Cell 3 (Grade)
+                var cell3 = document.createElement("td");
+                var text3 = document.createTextNode(students[i].grade);
+                cell3.appendChild(text3);
+                row.appendChild(cell3);
+
+                // Add the completed row to the table
+                table.appendChild(row);
+            }
+
+            // 3. Finally, add the table to the page
+            container.appendChild(table);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!ELEMENT library (book)>
+
+<!ELEMENT book (title, author, year)>
+<!ATTLIST book
+    id        ID        #REQUIRED
+    language  (English|French) "English"
+    format    CDATA     "hardcover"
+>
+
+<!ELEMENT title  (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year   (#PCDATA)>
